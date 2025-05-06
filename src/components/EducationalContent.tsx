@@ -6,19 +6,19 @@ export default function EducationalContent() {
     {
       title: 'Küresel Su Krizi',
       description: 'Dünya genelinde su kıtlığı ve sürdürülebilir su yönetimi hakkında detaylı bilgi.',
-      link: '#',
+      link: 'https://cdn.hitit.edu.tr/sbe/files/12259_1602291132379.pdf',
       icon: Globe
     },
     {
       title: 'Evde Su Tasarrufu',
       description: 'Günlük hayatta uygulayabileceğiniz pratik su tasarrufu yöntemleri.',
-      link: '#',
+      link: 'https://dacd.artvin.edu.tr/en/download/article-file/476928',
       icon: BookOpen
     },
     {
       title: 'Okullarda Su Projesi',
       description: 'Öğrenciler için su tasarrufu projeleri ve eğitim materyalleri.',
-      link: '#',
+      link: 'https://www.winssolutions.org/tr/gri-su-geri-donusumu-surdurulebilir-su-kullanimi-icin-pratik-bir-okul-dersi/#:~:text=%C3%96%C4%9Frenciler%20taraf%C4%B1ndan%20ba%C5%9Flat%C4%B1lan%20proje%2C%20okulun,koruman%C4%B1n%20%C3%B6nemi%20hakk%C4%B1nda%20fark%C4%B1ndal%C4%B1k%20yarat%C4%B1r.',
       icon: School
     }
   ];
@@ -51,7 +51,7 @@ export default function EducationalContent() {
                 <div>
                   <h4 className="font-medium text-blue-900">{article.title}</h4>
                   <p className="text-sm text-gray-600 mt-1">{article.description}</p>
-                  <a href={article.link} className="text-sm text-blue-600 hover:text-blue-800 mt-2 inline-block">
+                  <a href={article.link} target='_blank' className="text-sm text-blue-600 hover:text-blue-800 mt-2 inline-block">
                     Devamını Oku →
                   </a>
                 </div>

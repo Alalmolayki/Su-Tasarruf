@@ -67,42 +67,44 @@ export default function WaterUsageForm({ onUsageUpdate }: WaterUsageFormProps) {
       <div className="space-y-4">
         {Object.entries(formData).map(([key, value]) => (
           <div key={key} className="relative">
-            <label className="block text-sm font-medium text-gray-700 capitalize">
-              {key === 'tap' ? 'Musluk Kullanımı' : 
-               key === 'shower' ? 'Duş' :
-               key === 'washing' ? 'Çamaşır/Bulaşık' : 'Diğer'} (Litre)
-            </label>
-            <div className="mt-1 flex items-center space-x-2">
-              <input
-                type="number"
-                name={key}
-                value={value}
-                onChange={handleChange}
-                className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-                min="0"
-              />
-              <button
-                type="button"
-                onClick={() => handleQuickFill(key)}
-                className="px-3 py-2 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors"
-              >
-                Tipik Değer
-              </button>
-              <button
-                type="button"
-                onMouseEnter={() => setShowGuide(key)}
-                onMouseLeave={() => setShowGuide(null)}
-                className="text-gray-400 hover:text-blue-500"
-              >
-                <Info size={20} />
-              </button>
-            </div>
-            {showGuide === key && (
-              <div className="absolute right-0 mt-1 p-2 bg-blue-50 rounded-md text-sm text-blue-800 shadow-lg z-10 w-64">
-                {usageGuide[key].description}
-              </div>
-            )}
+          <label className="block text-sm font-medium text-gray-700 capitalize">
+            {key === 'tap' ? 'Musluk Kullanımı' : 
+             key === 'shower' ? 'Duş' :
+             key === 'washing' ? 'Çamaşır/Bulaşık' : 'Diğer'} (Litre)
+          </label>
+          <div className="mt-1 flex items-center space-x-2">
+            <input
+              type="number"
+              name={key}
+              value={value === 0 ? '' : value}
+              onChange={handleChange}
+              className="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 text-lg px-4 py-2"
+              min="0"
+              placeholder=""
+            />
+            <button
+              type="button"
+              onClick={() => handleQuickFill(key)}
+              className="px-3 py-2 text-sm bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors"
+            >
+              Tipik Değer
+            </button>
+            <button
+              type="button"
+              onMouseEnter={() => setShowGuide(key)}
+              onMouseLeave={() => setShowGuide(null)}
+              className="text-gray-400 hover:text-blue-500"
+            >
+              <Info size={20} />
+            </button>
           </div>
+          {showGuide === key && (
+            <div className="absolute right-0 mt-1 p-2 bg-blue-50 rounded-md text-sm text-blue-800 shadow-lg z-10 w-64">
+              {usageGuide[key].description}
+            </div>
+          )}
+        </div>
+        
         ))}
       </div>
 
